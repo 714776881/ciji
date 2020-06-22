@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.ciji.mapper.CollectMapper">
+	    <insert id="add" parameterType="Collect">
+	    	insert into collect(collect_id,topic_id,user_id,date) values(#{collect_id},#{topic_id},#{user_id},#{date})
+	    </insert>
+	    <delete id="delete" parameterType="Collect" >
+	        delete from collect where collect_id= #{collect_id} and user_id = #{user_id}   
+	    </delete>
+	    <select id="get" parameterType="User" resultType="Collect">
+	        select * from collect where user_id= #{user_id}    
+	    </select>
+	    <select id="getById" parameterType="Collect" resultType="Collect">
+	        select * from collect where user_id= #{user_id} and topic_id=#{topic_id}   
+	    </select>
+	</mapper>	

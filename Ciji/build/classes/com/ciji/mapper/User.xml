@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.ciji.mapper.UserMapper">
+			
+    	<select id="get" parameterType="String" resultType="User">
+	        select * from user where user_email = #{user_email}    
+	    </select>
+	    <select id="add" parameterType="User">
+	        insert into user (user_email,user_password,user_name,user_age,user_regester_time,user_logintime,user_headShot )
+	         values (#{user_email},#{user_password},#{user_name},#{user_age},#{user_regester_time},#{user_logintime},#{user_headShot})
+	    </select>
+	    <select id="nowtime" resultType="java.util.Date">
+	        select sysdate();
+	    </select>
+	    <update id="update" parameterType="User" >
+	       update user set user_password=#{user_password},user_name=#{user_name},user_age=#{user_age},user_logintime=#{user_logintime} where user_id=#{user_id}
+	    </update>
+	</mapper>

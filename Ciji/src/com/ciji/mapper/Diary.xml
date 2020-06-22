@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.ciji.mapper.DiaryMapper">
+	    <insert id="add" parameterType="Diary" >
+	        insert into diary(diary_title,diary_content,topic_id,user_id,diary_editdate,diary_updatedate) values (#{diary_title},#{diary_content},#{topic_id},#{user_id},#{diary_editdate},#{diary_updatedate})    
+	    </insert>
+	    
+	    <delete id="delete" parameterType="Diary" >
+	        delete from diary where diary_id= #{diary_id}   
+	    </delete>
+	    
+	    <select id="get" parameterType="_int" resultType="Diary">
+	        select * from   diary  where diary_id= #{diary_id}    
+	    </select>
+		
+	    <update id="update" parameterType="Diary" >
+	        update diary set diary_title=#{diary_title},diary_content=#{diary_content},diary_updatedate=#{diary_updatedate} where diary_id=#{diary_id} and user_id=#{user_id}    
+	    </update>
+	    <select id="list" resultType="Diary">
+	        select * from   diary order by diary_id desc             
+	    </select>
+	    <select id="listbyid" resultType="Diary" parameterType="Diary">
+	        select * from   diary  where user_id=#{user_id} and topic_id=#{topic_id}    order by diary_id desc             
+	    </select>
+	    <select id="listbysort" resultType="Diary" parameterType="Diary">
+	        select * from   diary  where topic_id=#{topic_id} order by diary_id desc             
+	    </select>
+	     <select id="totalbyid" resultType="int" parameterType="Diary">
+	        select count(*) from   diary  where  user_id=#{user_id}    
+	    </select>
+	    <select id="total" resultType="int">
+	        select count(*) from   diary   
+	    </select>	    	    
+	</mapper>	

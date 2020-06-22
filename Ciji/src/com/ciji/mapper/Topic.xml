@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.ciji.mapper.TopicMapper">
+	    <insert id="add" parameterType="Topic" >
+	        insert into topic(topic_name,topic_meaning,topic_likes,topic_date,topic_sort,user_id) values (#{topic_name},#{topic_meaning},#{topic_likes},#{topic_date},#{topic_sort},#{user_id})    
+	    </insert>
+	    <delete id="delete" parameterType="Topic" >
+	        delete from topic where topic_id= #{topic_id}   
+	    </delete>
+	    <select id="getCollect" parameterType="_int" resultType="Topic">
+	        SELECT t.topic_id,t.topic_name,t.topic_meaning,t.topic_likes,t.topic_date,t.topic_sort,t.user_id 
+	        FROM collect c left join topic t on c.topic_id=t.topic_id where c.user_id=#{user_id};     
+	    </select>
+	    <select id="get" parameterType="_int" resultType="Topic">
+	        select * from   topic  where topic_id= #{topic_id}    
+	    </select>
+	    <update id="update" parameterType="Topic" >
+	        update topic set topic_name=#{topic_name},topic_sort=#{topic_sort},topic_likes=#{topic_likes} where topic_id=#{topic_id}    
+	    </update>
+	    <select id="list" resultType="Topic">
+	        select * from   topic  order by topic_id desc             
+	    </select>
+	    <select id="listbyid" resultType="Topic" parameterType="_int">
+	        select * from   topic  where user_id=#{user_id}  order by topic_id desc             
+	    </select>
+	    <select id="listbyname" resultType="Topic" parameterType="String">
+	        select * from   topic  where topic_name=#{topic_name}  order by topic_id desc             
+	    </select>
+	    <select id="listbyTopic" resultType="Topic" parameterType="Topic">
+	    
+	     
+SELECT * FROM topic
+WHERE topic_sort=#{topic_sort} and  topic_name LIKE concat('%',#{topic_name},'%') ORDER BY
+CASE
+WHEN topic_name LIKE concat(#{topic_name}) THEN 0
+WHEN topic_name LIKE concat(#{topic_name},'%') THEN 1
+WHEN topic_name LIKE concat('%',#{topic_name}) THEN 3
+ELSE 2   END
+
+	    
+	     <!--
+	        select * from   topic  where topic_name like concat('%',#{topic_name},'%') and topic_sort=#{topic_sort}  order by topic_id            
+	    -->
+	    </select>
+	    <select id="listbyTopicSort" resultType="Topic" parameterType="Topic">
+	        select * from   topic  where topic_sort=#{topic_sort} and user_id=#{user_id}  order by topic_id            
+	    </select>
+	    <select id="total" resultType="int">
+	        select count(*) from   topic     
+	    </select>	    	    
+	</mapper>	

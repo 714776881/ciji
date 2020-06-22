@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.ciji.mapper.CommentMapper">
+	    <insert id="add" parameterType="Comment">
+	    	insert into comment(comment_id,show_id,content,date,user_name,father_id)
+	    	values(#{comment_id},#{show_id},#{content},#{date},#{user_name},#{father_id});
+	    </insert>
+	    <select id="getByid" parameterType="_int" resultType="Comment">
+	        select * from comment where show_id=#{show_id};
+	    </select>
+	</mapper>	
