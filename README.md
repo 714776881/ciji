@@ -3,7 +3,9 @@
 
 联系方式（新浪邮箱）：liuxian718@sina.com 
 
-页面展示：https://github.com/714776881/ciji/blob/master/%E7%BD%91%E7%AB%99%E5%B1%95%E7%A4%BA%E5%9B%BE%E7%89%87/%E4%B8%BB%E9%A1%B5%E9%9D%A2.jpg
+主页面展示：https://github.com/714776881/ciji/blob/master/%E7%BD%91%E7%AB%99%E5%B1%95%E7%A4%BA%E5%9B%BE%E7%89%87/%E4%B8%BB%E9%A1%B5%E9%9D%A2.jpg
+
+<i>如有需要观看其他页面，可以查看文件页面展示</i>
 
 在线口令日记的主要功能划分有用户登录和注册管理，日记管理，记事分类管理，日记查询，个人信息设置，首页管理，用户反馈管理这七个部分，下面对每一个部分需要完成的内容进行详细说明。
 
