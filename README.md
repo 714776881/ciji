@@ -3,7 +3,7 @@
 
 联系方式（新浪邮箱）：liuxian718@sina.com 
 
-主页面展示：https://github.com/714776881/ciji/blob/master/%E7%BD%91%E7%AB%99%E5%B1%95%E7%A4%BA%E5%9B%BE%E7%89%87/%E4%B8%BB%E9%A1%B5%E9%9D%A2.jpg
+主页面展示：![image](https://github.com/714776881/ciji/blob/master/%E7%BD%91%E7%AB%99%E5%B1%95%E7%A4%BA%E5%9B%BE%E7%89%87/%E4%B8%BB%E9%A1%B5%E9%9D%A2.jpg)
 
 <i>如有需要观看其他页面，可以查看网站页面展示文件夹</i>
 
